@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="UnderWorldLayerSkin" width="750" height="526" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="15bad65f2f3" ></w:Config>
+	<e:Group id="WorldGroup" width="750" height="526" horizontalCenter="0" anchorOffsetX="0" touchChildren="false" touchEnabled="false" touchThrough="false" y="0">
+		<e:Group id="DateBgGroup" width="750" height="526" y="-131.67" x="0">
+			<e:Image id="SunLightImg" source="sun_png" x="159.5" y="131.67"/>
+			<e:Image id="NightBgImg" left="0" right="0" top="0" bottom="0" source="bg_night_png"/>
+			<e:Image id="NightStarImg" source="bg_night_star_png" height="106" y="271.35" left="1" right="-1"/>
+			<e:Image id="NightMoonImg" source="night_moon_png" x="479.5" y="236.67"/>
+			<e:Image source="bg_ocean_png" x="0" y="315"/>
+		</e:Group>
+		<e:Group id="WorldBgGroup" height="526" anchorOffsetX="0" anchorOffsetY="0" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Group id="GroupLayer1" left="0" right="0" top="0" bottom="0">
+		</e:Group>
+		<e:Group id="GroupLayer2" left="0" right="0" top="0" bottom="0"/>
+		<e:Group id="GroupLayer3" left="0" right="0" top="0" bottom="0">
+		</e:Group>
+		<e:Group x="80.02" y="109.85">
+			<e:ProgressBar id="UnderHappinessBar" width="200" height="30" x="0" y="0" skinName="skins.UnderProgressBarSkin"/>
+			<e:ProgressBar id="HappinessBar" width="200" height="30" x="0" y="0" skinName="skins.ProgressBarSkin"/>
+			<e:Image width="50" height="50" x="-38" y="-8.5" source="smile_png" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:Label id="CultureLabel" text="Label" x="621.34" y="445.67"/>
+		<e:Label id="GameDayLabel" text="Label" x="621.34" y="475.67" textAlign="right" verticalAlign="middle"/>
+	</e:Group>
+</e:Skin>

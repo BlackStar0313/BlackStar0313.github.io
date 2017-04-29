@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GameMainLayerSkin" width="750" height="1206" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="15bacf6b7bd" ></w:Config>
+	<e:Group top="0" bottom="0" left="0" right="0">
+		<e:Image scale9Grid="6,3,39,24" left="0" right="0" top="0" bottom="0" source="bg_big_png"/>
+		<e:Group id="group_up" width="745.45" height="680" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="true" touchChildren="true">
+		</e:Group>
+		<e:Group id="group_down" width="745.45" height="526" x="0" y="680" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" touchThrough="true" touchChildren="false">
+		</e:Group>
+		<e:Image source="cloud2_png" x="-74" y="590" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Image source="cloud5_png" x="396" y="590" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Image id="img_cloud2" source="cloud3_png" x="312" y="678" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Image source="cloud1_png" x="-42" y="644" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Image id="img_cloud1" source="cloud1_png" x="-32" y="654" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Image source="cloud3_png" x="302" y="668" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Image source="cloud4_png" x="490" y="650" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Image id="img_cloud3" source="cloud4_png" x="500" y="660" scaleX="1" scaleY="1" touchEnabled="false"/>
+	</e:Group>
+	<e:Group id="HintGroup" width="253.22" height="105.15" x="19.17" y="843.94" anchorOffsetX="0" touchEnabled="false" anchorOffsetY="0">
+		<e:Image source="hint_bg_png" scale9Grid="43,13,89,72" anchorOffsetY="0" left="0" right="0" top="0" bottom="0" skewY="180" anchorOffsetX="0"/>
+		<e:Label id="HintLabel" text="Label" x="15" y="10" anchorOffsetX="0" width="224.73" anchorOffsetY="0" height="74.73" textAlign="left" verticalAlign="middle" textColor="0x000000" size="20"/>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ItemCellSkin" width="102" height="96" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="15bad6ffef0" ></w:Config>
+	<e:Group top="0" bottom="0" left="0" right="0" horizontalCenter="0" verticalCenter="0" anchorOffsetX="50.33" anchorOffsetY="45.67">
+		<e:Image id="img_item" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="item_fire_png"/>
+		<e:Label id="label_name" text="Label" x="0.34" y="66" anchorOffsetX="0" width="100.99" textAlign="center" stroke="2"/>
+		<e:Image id="img_bg" scale9Grid="7,8,43,48" source="right_png" y="0" x="34"/>
+	</e:Group>
+</e:Skin>
