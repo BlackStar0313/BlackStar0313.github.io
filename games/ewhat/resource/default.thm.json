@@ -1,0 +1,30 @@
+{
+  "skins": {
+    "eui.Button": "resource/eui_skins/ButtonSkin.exml",
+    "eui.CheckBox": "resource/eui_skins/CheckBoxSkin.exml",
+    "eui.HScrollBar": "resource/eui_skins/HScrollBarSkin.exml",
+    "eui.HSlider": "resource/eui_skins/HSliderSkin.exml",
+    "eui.Panel": "resource/eui_skins/PanelSkin.exml",
+    "eui.TextInput": "resource/eui_skins/TextInputSkin.exml",
+    "eui.ProgressBar": "resource/eui_skins/ProgressBarSkin.exml",
+    "eui.RadioButton": "resource/eui_skins/RadioButtonSkin.exml",
+    "eui.Scroller": "resource/eui_skins/ScrollerSkin.exml",
+    "eui.ToggleSwitch": "resource/eui_skins/ToggleSwitchSkin.exml",
+    "eui.VScrollBar": "resource/eui_skins/VScrollBarSkin.exml",
+    "eui.VSlider": "resource/eui_skins/VSliderSkin.exml",
+    "eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
+    "RandLayer": "resource/eui_skins/RandLayer.exml",
+    "RandCell": "resource/eui_skins/RandCell.exml"
+  },
+  "autoGenerateExmlsList": true,
+  "exmls": [
+    {
+      "path": "resource/eui_skins/RandCell.exml",
+      "content": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<e:Skin class=\"RandCellSkin\" width=\"200\" height=\"200\" xmlns:e=\"http://ns.egret.com/eui\" xmlns:w=\"http://ns.egret.com/wing\" >\n\t<w:Config id=\"15e57a6e93f\" ></w:Config>\n\t<e:Group left=\"0\" right=\"0\" top=\"0\" bottom=\"0\">\n\t\t<e:Image id=\"img_bg\" source=\"ba6_s1_png\" x=\"0\" y=\"0\" width=\"200\" height=\"200\"/>\n\t\t<e:Image id=\"img_goods\" source=\"bingfu_png\" horizontalCenter=\"-1\" verticalCenter=\"-5\" touchEnabled=\"false\"/>\n\t\t<e:Label id=\"label_name\" text=\"Label\" y=\"159\" horizontalCenter=\"0\" stroke=\"3\" touchEnabled=\"false\"/>\n\t\t<e:Image id=\"img_mask\" source=\"ui_mask_png\" left=\"0\" right=\"0\" top=\"0\" bottom=\"0\" touchEnabled=\"false\"/>\n\t</e:Group>\n</e:Skin>"
+    },
+    {
+      "path": "resource/eui_skins/RandLayer.exml",
+      "content": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<e:Skin class=\"RandLayerSkin\" width=\"750\" height=\"1206\" xmlns:e=\"http://ns.egret.com/eui\" xmlns:w=\"http://ns.egret.com/wing\" >\n\t<w:Config id=\"15e579e37ea\" ></w:Config>\n\t<e:Group left=\"0\" right=\"0\" top=\"0\" bottom=\"0\">\n\t\t<e:DataGroup id=\"group_goods\" width=\"696.97\" height=\"969.7\" x=\"24.52\" y=\"163.42\" anchorOffsetX=\"0\" anchorOffsetY=\"0\"/>\n\t\t<e:Button id=\"btn_start\" label=\"start\" x=\"295.01\" y=\"50\">\n\t\t\t<e:skinName>\n\t\t\t\t<e:Skin states=\"up,down,disabled\">\n\t\t\t\t<e:Image width=\"100%\" height=\"100%\" source=\"btn27_s1_png\" source.down=\"btn27_s0_png\" source.disabled=\"btn27_s0_png\"/>\n\t\t\t\t<e:Label id=\"labelDisplay\" horizontalCenter=\"0\" verticalCenter=\"0\"/>\n\t\t\t\t</e:Skin>\n\t\t\t</e:skinName>\n\t\t</e:Button>\n\t</e:Group>\n</e:Skin>"
+    }
+  ]
+}
