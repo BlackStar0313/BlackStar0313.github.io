@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>markdown语法参考以及在Hexo使用</title>
+    <url>/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>本文记录一些Markdown的基础使用语法，以及一些在Hexo中使用的方式方法，方便后面写Blog参考。</p>
+<p><a href="https://markdown.com.cn/basic-syntax/">MarkDown官方教程语法</a></p>
+<span id="more"></span>
+<h3 id="给hexo中添加本地图片"><a class="markdownIt-Anchor" href="#给hexo中添加本地图片"></a> 给Hexo中添加本地图片</h3>
+<ol>
+<li>
+<p><a href="https://hexo.io/zh-cn/docs/asset-folders">绝对路径及其他使用方法</a></p>
+</li>
+<li>
+<p>当前适合本Blog的方法，相对路径：每一个文章当需要使用图片，在目录下同名文件夹，并使用markdown语法插入本地图片。<br />
+eg:<br />
+测试图片插入通过markdown语法<br />
+原图<br />
+<img src="testImg.jpeg" alt="" /><br />
+限制图片宽高为200x200<br />
+<img src="testImg.jpeg" alt="test" width="100px" /><br />
+!warning<br />
+（此问题未解决）暂时使用hexo 的标签语法</p>
+<p>Hexo标签语法</p>
+  <img src="/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/testImg.jpeg" class="" width="200" height="200" title="图片加载失败的描述">
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动效理论-刷新率</title>
+    <url>/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/</url>
+    <content><![CDATA[ <img src="/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/a.png" class="" title="图片加载失败的描述">
+<p>更高的刷新率是指显示器更新屏显图片的频率。此更新间隔的单位为毫秒 (ms)，而显示器刷新率的单位为赫兹 (Hz)。</p>
+<span id="more"></span>
+<p>显示器的刷新率是指显示器每秒绘制新图像的次数。其单位为赫兹 (Hz)。例如，如果您的显示器刷新率为 144 Hz，这是指它每秒钟会刷新图像 144 次。当与 GPU 和 CPU 联合产生的高帧速率相结合时，刷新率能够带来更流畅的体验，可能还会有更高的帧速率。</p>
+<p>如需了解系统可以支持的刷新率，最佳（也最简单）的方法就是运行游戏，从而查看系统的性能表现。游戏过程中，使用 <a href="https://fraps.com/">Fraps</a> 等帧速率监控程序来显示您的当前帧速率 (FPS)。大部分帧速率监控程序将能够测试您的<a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/read-cpu-benchmarks.html">平均帧速率</a>，以追踪您在游戏过程中的系统性能。</p>
+<blockquote>
+<p><a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/highest-refresh-rate-gaming.html"><strong>什么是刷新率以及为什么它很重要</strong></a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>动效</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Synology中指定nodejs版本</title>
     <url>/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<h3 id="手动下载安装-nvm"><a class="markdownIt-Anchor" href="#手动下载安装-nvm"></a> 手动下载安装 nvm</h3>
@@ -56,53 +105,5 @@
       <tags>
         <tag>技术</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>markdown语法参考以及在Hexo使用</title>
-    <url>/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>本文记录一些Markdown的基础使用语法，以及一些在Hexo中使用的方式方法，方便后面写Blog参考。</p>
-<p><a href="https://markdown.com.cn/basic-syntax/">MarkDown官方教程语法</a></p>
-<span id="more"></span>
-<h3 id="给hexo中添加本地图片"><a class="markdownIt-Anchor" href="#给hexo中添加本地图片"></a> 给Hexo中添加本地图片</h3>
-<ol>
-<li>
-<p><a href="https://hexo.io/zh-cn/docs/asset-folders">绝对路径及其他使用方法</a></p>
-</li>
-<li>
-<p>当前适合本Blog的方法，相对路径：每一个文章当需要使用图片，在目录下同名文件夹，并使用markdown语法插入本地图片。<br />
-eg:<br />
-测试图片插入通过markdown语法<br />
-原图<br />
-<img src="testImg.jpeg" alt="" /><br />
-限制图片宽高为200x200<br />
-<img src="testImg.jpeg" alt="test" width="100px" /><br />
-!warning<br />
-（此问题未解决）暂时使用hexo 的标签语法</p>
-<p>Hexo标签语法</p>
-  <img src="/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/testImg.jpeg" class="" width="200" height="200" title="图片加载失败的描述">
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动效理论-刷新率</title>
-    <url>/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/</url>
-    <content><![CDATA[ <img src="/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/a.png" class="" title="图片加载失败的描述">
-<p>更高的刷新率是指显示器更新屏显图片的频率。此更新间隔的单位为毫秒 (ms)，而显示器刷新率的单位为赫兹 (Hz)。</p>
-<p>显示器的刷新率是指显示器每秒绘制新图像的次数。其单位为赫兹 (Hz)。例如，如果您的显示器刷新率为 144 Hz，这是指它每秒钟会刷新图像 144 次。当与 GPU 和 CPU 联合产生的高帧速率相结合时，刷新率能够带来更流畅的体验，可能还会有更高的帧速率。</p>
-<p>如需了解系统可以支持的刷新率，最佳（也最简单）的方法就是运行游戏，从而查看系统的性能表现。游戏过程中，使用 <a href="https://fraps.com/">Fraps</a> 等帧速率监控程序来显示您的当前帧速率 (FPS)。大部分帧速率监控程序将能够测试您的<a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/read-cpu-benchmarks.html">平均帧速率</a>，以追踪您在游戏过程中的系统性能。</p>
-<blockquote>
-<p><a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/highest-refresh-rate-gaming.html"><strong>什么是刷新率以及为什么它很重要</strong></a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>动效</category>
-      </categories>
   </entry>
 </search>
