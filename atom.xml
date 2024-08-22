@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-22T12:21:31.431Z</updated>
+  <updated>2024-08-22T13:33:28.321Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动效理论-刷新率</title>
+    <link href="http://example.com/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/"/>
+    <id>http://example.com/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/</id>
+    <published>2024-08-22T13:23:44.000Z</published>
+    <updated>2024-08-22T13:33:28.321Z</updated>
+    
+    <content type="html"><![CDATA[ <img src="/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/a.png" class="" width="200" height="200" title="图片加载失败的描述"><p>更高的刷新率是指显示器更新屏显图片的频率。此更新间隔的单位为毫秒 (ms)，而显示器刷新率的单位为赫兹 (Hz)。</p><p>显示器的刷新率是指显示器每秒绘制新图像的次数。其单位为赫兹 (Hz)。例如，如果您的显示器刷新率为 144 Hz，这是指它每秒钟会刷新图像 144 次。当与 GPU 和 CPU 联合产生的高帧速率相结合时，刷新率能够带来更流畅的体验，可能还会有更高的帧速率。</p><p>如需了解系统可以支持的刷新率，最佳（也最简单）的方法就是运行游戏，从而查看系统的性能表现。游戏过程中，使用 <a href="https://fraps.com/">Fraps</a> 等帧速率监控程序来显示您的当前帧速率 (FPS)。大部分帧速率监控程序将能够测试您的<a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/read-cpu-benchmarks.html">平均帧速率</a>，以追踪您在游戏过程中的系统性能。</p><blockquote><p><a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/highest-refresh-rate-gaming.html"><strong>什么是刷新率以及为什么它很重要</strong></a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html"> &lt;img src=&quot;/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/a.png&quot; class=&quot;&quot; width=&quot;200&quot; height=&quot;200&quot; title=&quot;图片加载</summary>
+      
+    
+    
+    
+    <category term="动效" scheme="http://example.com/categories/%E5%8A%A8%E6%95%88/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Synology中指定nodejs版本</title>
