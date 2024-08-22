@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Synology中指定nodejs版本</title>
+    <url>/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h3 id="手动下载安装-nvm"><a class="markdownIt-Anchor" href="#手动下载安装-nvm"></a> 手动下载安装 nvm</h3>
+<h4 id="1-在本地机器上下载-nvm-源码"><a class="markdownIt-Anchor" href="#1-在本地机器上下载-nvm-源码"></a> 1. 在本地机器上下载 nvm 源码</h4>
+<p>在你的本地机器上执行以下操作：</p>
+<ol>
+<li>
+<p>打开终端（或 git bash，如果你在 Windows 上）。</p>
+</li>
+<li>
+<p>下载 nvm 源码：</p>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nvm-sh/nvm.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<span id="more"></span>
+<h4 id="2-上传-nvm-源码到-synology-群晖设备"><a class="markdownIt-Anchor" href="#2-上传-nvm-源码到-synology-群晖设备"></a> 2. 上传 nvm 源码到 Synology 群晖设备</h4>
+<p>你可以使用工具（如 FileZilla 或 WinSCP）将下载的 <code>nvm</code> 文件夹上传到你的群晖设备上，例如上传到用户主目录下。</p>
+<h4 id="3-在-synology-群晖设备上手动安装-nvm"><a class="markdownIt-Anchor" href="#3-在-synology-群晖设备上手动安装-nvm"></a> 3. 在 Synology 群晖设备上手动安装 nvm</h4>
+<ol>
+<li>
+<p>通过 SSH 登录到你的 Synology 群晖设备。</p>
+</li>
+<li>
+<p>导航到你上传的 <code>nvm</code> 目录：</p>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/nvm</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>运行安装命令：</p>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.nvm</span><br><span class="line"><span class="built_in">cp</span> -r ./nvm/* ~/.nvm/</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>配置环境变量以加载 nvm：</p>
+<p>编辑你的 <code>.bashrc</code> 文件（或者 <code>.zshrc</code>，如果你使用 <code>zsh</code>）：</p>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>添加以下内容到文件末尾：</p>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
+<p>保存并关闭文件，然后重新加载 Shell 配置：</p>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="4-使用-nvm-安装指定版本的-nodejs"><a class="markdownIt-Anchor" href="#4-使用-nvm-安装指定版本的-nodejs"></a> 4. 使用 nvm 安装指定版本的 Node.js</h4>
+<p>在套件中心下载过往版本node</p>
+ <img src="/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/a.png" class="" title="图片加载失败的描述">
+<p>现在你可以使用 <code>nvm</code> 安装指定的 Node.js 版本。例如，要安装 Node.js 14.21.3：<br />
+查看当前已有的nodejs版本</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nvm list</span><br><span class="line">nvm <span class="built_in">set</span> 14.21.3</span><br></pre></td></tr></table></figure>
+<h3 id="验证安装"><a class="markdownIt-Anchor" href="#验证安装"></a> 验证安装</h3>
+<p>验证 Node.js 和 npm 是否成功安装：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown语法参考以及在Hexo使用</title>
+    <url>/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>本文记录一些Markdown的基础使用语法，以及一些在Hexo中使用的方式方法，方便后面写Blog参考。</p>
+<p><a href="https://markdown.com.cn/basic-syntax/">MarkDown官方教程语法</a></p>
+<span id="more"></span>
+<h3 id="给hexo中添加本地图片"><a class="markdownIt-Anchor" href="#给hexo中添加本地图片"></a> 给Hexo中添加本地图片</h3>
+<ol>
+<li>
+<p><a href="https://hexo.io/zh-cn/docs/asset-folders">绝对路径及其他使用方法</a></p>
+</li>
+<li>
+<p>当前适合本Blog的方法，相对路径：每一个文章当需要使用图片，在目录下同名文件夹，并使用markdown语法插入本地图片。<br />
+eg:<br />
+测试图片插入通过markdown语法<br />
+原图<br />
+<img src="testImg.jpeg" alt="" /><br />
+限制图片宽高为200x200<br />
+<img src="testImg.jpeg" alt="test" width="100px" /><br />
+!warning<br />
+（此问题未解决）暂时使用hexo 的标签语法</p>
+<p>Hexo标签语法</p>
+  <img src="/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/testImg.jpeg" class="" width="200" height="200" title="图片加载失败的描述">
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+</search>
