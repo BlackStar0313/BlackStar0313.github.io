@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>markdown语法参考以及在Hexo使用</title>
-    <url>/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>本文记录一些Markdown的基础使用语法，以及一些在Hexo中使用的方式方法，方便后面写Blog参考。</p>
-<p><a href="https://markdown.com.cn/basic-syntax/">MarkDown官方教程语法</a></p>
-<span id="more"></span>
-<h3 id="给hexo中添加本地图片"><a class="markdownIt-Anchor" href="#给hexo中添加本地图片"></a> 给Hexo中添加本地图片</h3>
-<ol>
-<li>
-<p><a href="https://hexo.io/zh-cn/docs/asset-folders">绝对路径及其他使用方法</a></p>
-</li>
-<li>
-<p>当前适合本Blog的方法，相对路径：每一个文章当需要使用图片，在目录下同名文件夹，并使用markdown语法插入本地图片。<br />
-eg:<br />
-测试图片插入通过markdown语法<br />
-原图<br />
-<img src="testImg.jpeg" alt="" /><br />
-限制图片宽高为200x200<br />
-<img src="testImg.jpeg" alt="test" width="100px" /><br />
-!warning<br />
-（此问题未解决）暂时使用hexo 的标签语法</p>
-<p>Hexo标签语法</p>
-  <img src="/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/testImg.jpeg" class="" width="200" height="200" title="图片加载失败的描述">
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动效理论-刷新率</title>
-    <url>/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/</url>
-    <content><![CDATA[ <img src="/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/a.png" class="" title="图片加载失败的描述">
-<p>更高的刷新率是指显示器更新屏显图片的频率。此更新间隔的单位为毫秒 (ms)，而显示器刷新率的单位为赫兹 (Hz)。</p>
-<span id="more"></span>
-<p>显示器的刷新率是指显示器每秒绘制新图像的次数。其单位为赫兹 (Hz)。例如，如果您的显示器刷新率为 144 Hz，这是指它每秒钟会刷新图像 144 次。当与 GPU 和 CPU 联合产生的高帧速率相结合时，刷新率能够带来更流畅的体验，可能还会有更高的帧速率。</p>
-<p>如需了解系统可以支持的刷新率，最佳（也最简单）的方法就是运行游戏，从而查看系统的性能表现。游戏过程中，使用 <a href="https://fraps.com/">Fraps</a> 等帧速率监控程序来显示您的当前帧速率 (FPS)。大部分帧速率监控程序将能够测试您的<a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/read-cpu-benchmarks.html">平均帧速率</a>，以追踪您在游戏过程中的系统性能。</p>
-<blockquote>
-<p><a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/highest-refresh-rate-gaming.html"><strong>什么是刷新率以及为什么它很重要</strong></a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>动效</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Synology中指定nodejs版本</title>
     <url>/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<h3 id="手动下载安装-nvm"><a class="markdownIt-Anchor" href="#手动下载安装-nvm"></a> 手动下载安装 nvm</h3>
@@ -107,6 +58,55 @@ eg:<br />
       </tags>
   </entry>
   <entry>
+    <title>markdown语法参考以及在Hexo使用</title>
+    <url>/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>本文记录一些Markdown的基础使用语法，以及一些在Hexo中使用的方式方法，方便后面写Blog参考。</p>
+<p><a href="https://markdown.com.cn/basic-syntax/">MarkDown官方教程语法</a></p>
+<span id="more"></span>
+<h3 id="给hexo中添加本地图片"><a class="markdownIt-Anchor" href="#给hexo中添加本地图片"></a> 给Hexo中添加本地图片</h3>
+<ol>
+<li>
+<p><a href="https://hexo.io/zh-cn/docs/asset-folders">绝对路径及其他使用方法</a></p>
+</li>
+<li>
+<p>当前适合本Blog的方法，相对路径：每一个文章当需要使用图片，在目录下同名文件夹，并使用markdown语法插入本地图片。<br />
+eg:<br />
+测试图片插入通过markdown语法<br />
+原图<br />
+<img src="testImg.jpeg" alt="" /><br />
+限制图片宽高为200x200<br />
+<img src="testImg.jpeg" alt="test" width="100px" /><br />
+!warning<br />
+（此问题未解决）暂时使用hexo 的标签语法</p>
+<p>Hexo标签语法</p>
+  <img src="/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/testImg.jpeg" class="" width="200" height="200" title="图片加载失败的描述">
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动效理论-刷新率</title>
+    <url>/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/</url>
+    <content><![CDATA[ <img src="/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/a.png" class="" title="图片加载失败的描述">
+<p>更高的刷新率是指显示器更新屏显图片的频率。此更新间隔的单位为毫秒 (ms)，而显示器刷新率的单位为赫兹 (Hz)。</p>
+<span id="more"></span>
+<p>显示器的刷新率是指显示器每秒绘制新图像的次数。其单位为赫兹 (Hz)。例如，如果您的显示器刷新率为 144 Hz，这是指它每秒钟会刷新图像 144 次。当与 GPU 和 CPU 联合产生的高帧速率相结合时，刷新率能够带来更流畅的体验，可能还会有更高的帧速率。</p>
+<p>如需了解系统可以支持的刷新率，最佳（也最简单）的方法就是运行游戏，从而查看系统的性能表现。游戏过程中，使用 <a href="https://fraps.com/">Fraps</a> 等帧速率监控程序来显示您的当前帧速率 (FPS)。大部分帧速率监控程序将能够测试您的<a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/read-cpu-benchmarks.html">平均帧速率</a>，以追踪您在游戏过程中的系统性能。</p>
+<blockquote>
+<p><a href="https://www.intel.cn/content/www/cn/zh/gaming/resources/highest-refresh-rate-gaming.html"><strong>什么是刷新率以及为什么它很重要</strong></a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>动效</category>
+      </categories>
+  </entry>
+  <entry>
     <title>动效理论-子弹时间</title>
     <url>/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/</url>
     <content><![CDATA[<h3 id="子弹时间"><a class="markdownIt-Anchor" href="#子弹时间"></a> <a href="https://zh.wikipedia.org/wiki/%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4#:~:text=%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4%EF%BC%88%E8%8B%B1%E8%AA%9E%EF%BC%9Abullet%20time,%E8%A7%86%E8%A7%92%EF%BC%89%E4%B9%9F%E5%9B%B4%E7%BB%95%E5%9C%BA%E6%99%AF%E6%97%8B%E8%BD%AC%E3%80%82">子弹时间</a></h3>
@@ -120,8 +120,8 @@ eg:<br />
 <li>
 <p><strong>情绪</strong><br />
 比如，一分钟有多长，取决于你在厕所外还是在厕所内。</p>
- 
- 
+ <img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/1_1.png" class="" title="图片加载失败的描述">
+ <img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/1_2.png" class="" title="图片加载失败的描述">
 <p>当一个人处在紧张，焦虑，恐惧，痛苦等<strong>负面情绪</strong>时，时间就会变慢。<br />
 在游戏中， 我们希望玩家更长时间的留在游戏内，那么就需要让玩家不自觉的时间变快，也就是消除负面情绪，提供愉快，刺激的体验。</p>
 </li>
@@ -129,7 +129,7 @@ eg:<br />
 <p><strong>注意力</strong><br />
 除了负面情绪，还有就是<strong>注意力。</strong><br />
 比如当我们集中注意力在学习或者工作，会觉得时间飞快流逝。街头玩接棒子的游戏，如果很认真的观察精神高度集中，就很难抓住棒子，感觉时间很快，但是如果分散注意力不去刻意盯着棒子，会感觉掉落的棒子没有那么快。</p>
-
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/1_3.png" class="" title="图片加载失败的描述">
 <p>在游戏中如何让玩家集中精力，也可以提升玩家留存时间。</p>
 <p>一个例子是短视频平台，抖音快手这种，区别于传统长视频，就如同上课，同一内容无法长时间精力高度集中，而短视频时间短，在精力要分散时就该滑到下一个视频，新的内容刺激人专注，不感兴趣的内容会引起精力分散，马上滑走直到感兴趣内容出现，形成奶头乐，没怎么注意一两个小时就没了。</p>
 </li>
@@ -145,17 +145,17 @@ B --------------<br />
 <p>在游戏中合理运用子弹时间也就给玩家提供正向情绪，从战斗的专注度中切换出来，不至于一直保持同一状态，很容易疲劳，有节奏感。</p>
 <h3 id="子弹时间在电影中应用"><a class="markdownIt-Anchor" href="#子弹时间在电影中应用"></a> 子弹时间在电影中应用</h3>
 <p><strong>电影 《黑客帝国》</strong></p>
-
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/2_1.gif" class="" title="图片加载失败的描述">
 <p><strong>《猎杀T34》</strong></p>
-
-
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/2_2.gif" class="" title="图片加载失败的描述">
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/2_3.gif" class="" title="图片加载失败的描述">
 <h3 id="子弹时间在游戏中应用"><a class="markdownIt-Anchor" href="#子弹时间在游戏中应用"></a> 子弹时间在游戏中应用</h3>
 <p><strong>《刺客信条》</strong></p>
-
-
-
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/3_1.gif" class="" title="图片加载失败的描述">
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/3_2.gif" class="" title="图片加载失败的描述">
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/3_3.gif" class="" title="图片加载失败的描述">
 <p><strong>手游中 《神觉者》</strong></p>
-]]></content>
+<img src="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/4_1.gif" class="" title="图片加载失败的描述">]]></content>
       <categories>
         <category>动效</category>
       </categories>
