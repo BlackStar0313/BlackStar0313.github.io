@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -252,6 +252,99 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhiwei Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Liu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/" class="post-title-link" itemprop="url">游戏战斗中碰撞检测优化-空间分割</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-10-20 21:37:44" itemprop="dateCreated datePublished" datetime="2024-10-20T21:37:44+08:00">2024-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-21 21:52:20" itemprop="dateModified" datetime="2024-11-21T21:52:20+08:00">2024-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h5 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h5>
+<p>在开发类似雷电的游戏中，小人会发出子弹，并对随机出的小人时时进行碰撞检测。遇到的性能问题是，屏幕自上而下按轮数先后出一百个小人，每个小人都可以对玩家发出子弹，玩家可以向敌人发出子弹，可以同时拥有十几个武器，并且拥有不同的武器，发出的子弹形状和形态都不一样，同屏可能会出现几百个敌人和几百个子弹，他们的位置每帧都在移动，每帧都需要进行子弹和角色的碰撞检测，导致敌人多时，每帧计算过多，CPU占用卡到不能动。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

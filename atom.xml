@@ -37,6 +37,28 @@
   </entry>
   
   <entry>
+    <title>游戏战斗中碰撞检测优化-空间分割</title>
+    <link href="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/"/>
+    <id>http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/</id>
+    <published>2024-10-20T13:37:44.000Z</published>
+    <updated>2024-11-21T13:52:20.049Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h5><p>在开发类似雷电的游戏中，小人会发出子弹，并对随机出的小人时时进行碰撞检测。遇到的性能问题是，屏幕自上而下按轮数先后出一百个小人，每个小人都可以对玩家发出子弹，玩家可以向敌人发出子弹，可以同时拥有十几个武器，并且拥有不同的武器，发出的子弹形状和形态都不一样，同屏可能会出现几百个敌人和几百个子弹，他们的位置每帧都在移动，每帧都需要进行子弹和角色的碰撞检测，导致敌人多时，每帧计算过多，CPU占用卡到不能动。</p><span id="more"></span><h5 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h5><ol><li><p>渲染优化<br />骨骼动画合并到一个动画里，使用一张纹理，减少纹理切换，使用cocos的<strong>PRIVATE_CACHE</strong> 模式并开启动画合批降低drawcall.</p></li><li><p>碰撞检测优化<br />不使用物理引擎，避免物理引擎中冗余的计算，对不同的子弹，进行不同的碰撞计算，比如圆和矩形碰撞，点和矩形碰撞，避免使用多边形碰撞等等。</p></li><li><p>碰撞检测前空间划分<br />同屏过多的小人，一颗子弹每帧会遍历所有敌人，挨个进行碰撞计算会依然会卡顿，当一颗子弹发出，没必要对所有敌人进行检测，只需要对他周围可能会碰到的敌人去检测，会大大提高效率。需要对数量众多的敌人进行分区域，通过子弹所在区域只对该区域的敌人去检测。</p></li></ol><h5 id="空间划分"><a class="markdownIt-Anchor" href="#空间划分"></a> 空间划分</h5><ol><li>网格划分<br />均匀网格划分，根据子弹的矩形大小，为网格格子大小，对整个地图划分网格。<br /><img src="1.png" alt="test" width="200px" /><br />这样就可以根据子弹和怪的坐标，确定是否在同一个格子中，来筛选出该判断的小怪实例，测试发现性能提升不少。但是不稳定，只能是特别简单的情况性能才会有明显优势。<br />这种方式存在问题<ol><li>子弹和小怪是存在体积的，不是一个点，一个小怪可能在多个格子中。</li><li>子弹存在旋转，且子弹的形态不同，有小矩形小子弹，扇形的喷火器，也有激光子弹这种贯穿屏幕的。使网格大小有可能一个屏幕只能会有1个存在。约等于没提升。<br />针对上面的问题，尝试通过这种方式优化一下</li></ol></li></ol><p><img src="2.png" alt="" /><br />将格子偏移一定距离，也就是扩大一定格子的大小，结果有所提升，但是并不好。</p><ol start="2"><li>四叉树<br /><img src="3.png" alt="" />  <img src="4.png" alt="" /><br />开始尝试使用四叉树，对整个地图做动态分区。这样效率大大提升。基本不会出现严重卡顿的情况了。<br />2d空间四叉树，对一个平面进行四等分，再对每一个分块再进行四等分，知道该区域内所有节点数量达到预先设置的阈值。基础思想其实就是2分法。</li></ol><p>因为用的cocos引擎，所有找的一个四叉树的js库，<br /><a href="https://github.com/timohausmann/quadtree-js">https://github.com/timohausmann/quadtree-js</a><br />可以动态检索与被检查物体在同一范围内的其他小怪，从下面的图看到，200个小怪只需要检测个位数的小怪来完成预筛选<br /><a href="https://timohausmann.de/quadtree.js/dynamic.html">https://timohausmann.de/quadtree.js/dynamic.html</a><br /><img src="5.jpg" alt="400" /></p><p>这个库提供了最基础的四叉树构建，和动态添加功能，可以设置树的最大深度，树节点可包含的node的阈值。代码很少，很精炼。<br />缺点：</p><ol><li>只能动态添加，不能动态删除。</li><li>想要动态删除和添加，需要每帧开始时，重新构建地图上所有怪物的四叉树</li><li>对象只能是矩形。<br />由于项目时间的限制，没有过多时间去这个库进行针对性修改逻辑，但是性能上提升很多，基本够用。<br /><img src="6.jpg" alt="200" />        <img src="7.jpg" alt="200" /></li></ol><p>还有很多其他的空间划分，没再过多研究。除了对碰撞检测进行优化，还可以引用在视锥剔除，比如游戏中的大地图，不在某一范围的可以不显示，或者忽略细节，3d游戏中，摄像机中物体被其他物体挡住后可以不渲染来提升渲染效率。</p><p><code> </code></p><pre><code>Referencehttps://blog.csdn.net/liran2019/article/details/106966794https://www.cnblogs.com/KillerAery/p/10878367.htmlhttps://forum.cocos.org/t/topic/95573</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;h5 id=&quot;问题&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#问题&quot;&gt;&lt;/a&gt; 问题&lt;/h5&gt;
+&lt;p&gt;在开发类似雷电的游戏中，小人会发出子弹，并对随机出的小人时时进行碰撞检测。遇到的性能问题是，屏幕自上而下按轮数先后出一百个小人，每个小人都可以对玩家发出子弹，玩家可以向敌人发出子弹，可以同时拥有十几个武器，并且拥有不同的武器，发出的子弹形状和形态都不一样，同屏可能会出现几百个敌人和几百个子弹，他们的位置每帧都在移动，每帧都需要进行子弹和角色的碰撞检测，导致敌人多时，每帧计算过多，CPU占用卡到不能动。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>动效理论-刷新率</title>
     <link href="http://example.com/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/"/>
     <id>http://example.com/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/</id>

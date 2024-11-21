@@ -19,30 +19,36 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="手动下载安装 nvm  1. 在本地机器上下载 nvm 源码 在你的本地机器上执行以下操作：   打开终端（或 git bash，如果你在 Windows 上）。   下载 nvm 源码：  1git clone https:&#x2F;&#x2F;github.com&#x2F;nvm-sh&#x2F;nvm.git">
+    <meta name="description" content="问题 在开发类似雷电的游戏中，小人会发出子弹，并对随机出的小人时时进行碰撞检测。遇到的性能问题是，屏幕自上而下按轮数先后出一百个小人，每个小人都可以对玩家发出子弹，玩家可以向敌人发出子弹，可以同时拥有十几个武器，并且拥有不同的武器，发出的子弹形状和形态都不一样，同屏可能会出现几百个敌人和几百个子弹，他们的位置每帧都在移动，每帧都需要进行子弹和角色的碰撞检测，导致敌人多时，每帧计算过多，CPU占用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Synology中指定nodejs版本">
-<meta property="og:url" content="http://example.com/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/index.html">
+<meta property="og:title" content="游戏战斗中碰撞检测优化-空间分割">
+<meta property="og:url" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/index.html">
 <meta property="og:site_name" content="Liu">
-<meta property="og:description" content="手动下载安装 nvm  1. 在本地机器上下载 nvm 源码 在你的本地机器上执行以下操作：   打开终端（或 git bash，如果你在 Windows 上）。   下载 nvm 源码：  1git clone https:&#x2F;&#x2F;github.com&#x2F;nvm-sh&#x2F;nvm.git">
+<meta property="og:description" content="问题 在开发类似雷电的游戏中，小人会发出子弹，并对随机出的小人时时进行碰撞检测。遇到的性能问题是，屏幕自上而下按轮数先后出一百个小人，每个小人都可以对玩家发出子弹，玩家可以向敌人发出子弹，可以同时拥有十几个武器，并且拥有不同的武器，发出的子弹形状和形态都不一样，同屏可能会出现几百个敌人和几百个子弹，他们的位置每帧都在移动，每帧都需要进行子弹和角色的碰撞检测，导致敌人多时，每帧计算过多，CPU占用">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/a.png">
-<meta property="article:published_time" content="2024-08-22T08:19:44.000Z">
-<meta property="article:modified_time" content="2024-08-22T12:21:31.431Z">
+<meta property="og:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/1.png">
+<meta property="og:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/2.png">
+<meta property="og:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/3.png">
+<meta property="og:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/4.png">
+<meta property="og:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/5.jpg">
+<meta property="og:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/6.jpg">
+<meta property="og:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/7.jpg">
+<meta property="article:published_time" content="2024-10-20T13:37:44.000Z">
+<meta property="article:modified_time" content="2024-11-21T13:52:20.049Z">
 <meta property="article:author" content="Zhiwei Liu">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/a.png">
+<meta name="twitter:image" content="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/1.png">
 
 
-<link rel="canonical" href="http://example.com/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/">
+<link rel="canonical" href="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/","path":"2024/08/22/Synology中指定nodejs版本/","title":"Synology中指定nodejs版本"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/","path":"2024/10/20/2d游戏战斗中碰撞检测优化-空间划分/","title":"游戏战斗中碰撞检测优化-空间分割"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Synology中指定nodejs版本 | Liu</title>
+<title>游戏战斗中碰撞检测优化-空间分割 | Liu</title>
   
 
 
@@ -142,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85-nvm"><span class="nav-number">1.</span> <span class="nav-text"> 手动下载安装 nvm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%B8%8A%E4%B8%8B%E8%BD%BD-nvm-%E6%BA%90%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 在本地机器上下载 nvm 源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%8A%E4%BC%A0-nvm-%E6%BA%90%E7%A0%81%E5%88%B0-synology-%E7%BE%A4%E6%99%96%E8%AE%BE%E5%A4%87"><span class="nav-number">1.2.</span> <span class="nav-text"> 2. 上传 nvm 源码到 Synology 群晖设备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%9C%A8-synology-%E7%BE%A4%E6%99%96%E8%AE%BE%E5%A4%87%E4%B8%8A%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85-nvm"><span class="nav-number">1.3.</span> <span class="nav-text"> 3. 在 Synology 群晖设备上手动安装 nvm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E4%BD%BF%E7%94%A8-nvm-%E5%AE%89%E8%A3%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84-nodejs"><span class="nav-number">1.4.</span> <span class="nav-text"> 4. 使用 nvm 安装指定版本的 Node.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text"> 验证安装</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text"> 问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text"> 解决方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text"> 空间划分</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -204,7 +210,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/20/2d%E6%B8%B8%E6%88%8F%E6%88%98%E6%96%97%E4%B8%AD%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B%E4%BC%98%E5%8C%96-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -217,12 +223,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Synology中指定nodejs版本 | Liu">
+      <meta itemprop="name" content="游戏战斗中碰撞检测优化-空间分割 | Liu">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Synology中指定nodejs版本
+          游戏战斗中碰撞检测优化-空间分割
         </h1>
 
         <div class="post-meta-container">
@@ -232,9 +238,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-08-22 16:19:44 / Modified: 20:21:31" itemprop="dateCreated datePublished" datetime="2024-08-22T16:19:44+08:00">2024-08-22</time>
+      <time title="Created: 2024-10-20 21:37:44" itemprop="dateCreated datePublished" datetime="2024-10-20T21:37:44+08:00">2024-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-21 21:52:20" itemprop="dateModified" datetime="2024-11-21T21:52:20+08:00">2024-11-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,53 +274,68 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h3 id="手动下载安装-nvm"><a class="markdownIt-Anchor" href="#手动下载安装-nvm"></a> 手动下载安装 nvm</h3>
-<h4 id="1-在本地机器上下载-nvm-源码"><a class="markdownIt-Anchor" href="#1-在本地机器上下载-nvm-源码"></a> 1. 在本地机器上下载 nvm 源码</h4>
-<p>在你的本地机器上执行以下操作：</p>
-<ol>
-<li>
-<p>打开终端（或 git bash，如果你在 Windows 上）。</p>
-</li>
-<li>
-<p>下载 nvm 源码：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nvm-sh/nvm.git</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+    <div class="post-body" itemprop="articleBody"><h5 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h5>
+<p>在开发类似雷电的游戏中，小人会发出子弹，并对随机出的小人时时进行碰撞检测。遇到的性能问题是，屏幕自上而下按轮数先后出一百个小人，每个小人都可以对玩家发出子弹，玩家可以向敌人发出子弹，可以同时拥有十几个武器，并且拥有不同的武器，发出的子弹形状和形态都不一样，同屏可能会出现几百个敌人和几百个子弹，他们的位置每帧都在移动，每帧都需要进行子弹和角色的碰撞检测，导致敌人多时，每帧计算过多，CPU占用卡到不能动。</p>
 <span id="more"></span>
-<h4 id="2-上传-nvm-源码到-synology-群晖设备"><a class="markdownIt-Anchor" href="#2-上传-nvm-源码到-synology-群晖设备"></a> 2. 上传 nvm 源码到 Synology 群晖设备</h4>
-<p>你可以使用工具（如 FileZilla 或 WinSCP）将下载的 <code>nvm</code> 文件夹上传到你的群晖设备上，例如上传到用户主目录下。</p>
-<h4 id="3-在-synology-群晖设备上手动安装-nvm"><a class="markdownIt-Anchor" href="#3-在-synology-群晖设备上手动安装-nvm"></a> 3. 在 Synology 群晖设备上手动安装 nvm</h4>
+<h5 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h5>
 <ol>
 <li>
-<p>通过 SSH 登录到你的 Synology 群晖设备。</p>
+<p>渲染优化<br />
+骨骼动画合并到一个动画里，使用一张纹理，减少纹理切换，使用cocos的<strong>PRIVATE_CACHE</strong> 模式并开启动画合批降低drawcall.</p>
 </li>
 <li>
-<p>导航到你上传的 <code>nvm</code> 目录：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/nvm</span><br></pre></td></tr></table></figure>
+<p>碰撞检测优化<br />
+不使用物理引擎，避免物理引擎中冗余的计算，对不同的子弹，进行不同的碰撞计算，比如圆和矩形碰撞，点和矩形碰撞，避免使用多边形碰撞等等。</p>
 </li>
 <li>
-<p>运行安装命令：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.nvm</span><br><span class="line"><span class="built_in">cp</span> -r ./nvm/* ~/.nvm/</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>配置环境变量以加载 nvm：</p>
-<p>编辑你的 <code>.bashrc</code> 文件（或者 <code>.zshrc</code>，如果你使用 <code>zsh</code>）：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>添加以下内容到文件末尾：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
-<p>保存并关闭文件，然后重新加载 Shell 配置：</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>碰撞检测前空间划分<br />
+同屏过多的小人，一颗子弹每帧会遍历所有敌人，挨个进行碰撞计算会依然会卡顿，当一颗子弹发出，没必要对所有敌人进行检测，只需要对他周围可能会碰到的敌人去检测，会大大提高效率。需要对数量众多的敌人进行分区域，通过子弹所在区域只对该区域的敌人去检测。</p>
 </li>
 </ol>
-<h4 id="4-使用-nvm-安装指定版本的-nodejs"><a class="markdownIt-Anchor" href="#4-使用-nvm-安装指定版本的-nodejs"></a> 4. 使用 nvm 安装指定版本的 Node.js</h4>
-<p>在套件中心下载过往版本node</p>
- <img src="/2024/08/22/Synology%E4%B8%AD%E6%8C%87%E5%AE%9Anodejs%E7%89%88%E6%9C%AC/a.png" class="" title="图片加载失败的描述">
-<p>现在你可以使用 <code>nvm</code> 安装指定的 Node.js 版本。例如，要安装 Node.js 14.21.3：<br />
-查看当前已有的nodejs版本</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm list</span><br><span class="line">nvm <span class="built_in">set</span> 14.21.3</span><br></pre></td></tr></table></figure>
-<h3 id="验证安装"><a class="markdownIt-Anchor" href="#验证安装"></a> 验证安装</h3>
-<p>验证 Node.js 和 npm 是否成功安装：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<h5 id="空间划分"><a class="markdownIt-Anchor" href="#空间划分"></a> 空间划分</h5>
+<ol>
+<li>网格划分<br />
+均匀网格划分，根据子弹的矩形大小，为网格格子大小，对整个地图划分网格。<br />
+<img src="1.png" alt="test" width="200px" /><br />
+这样就可以根据子弹和怪的坐标，确定是否在同一个格子中，来筛选出该判断的小怪实例，测试发现性能提升不少。但是不稳定，只能是特别简单的情况性能才会有明显优势。<br />
+这种方式存在问题
+<ol>
+<li>子弹和小怪是存在体积的，不是一个点，一个小怪可能在多个格子中。</li>
+<li>子弹存在旋转，且子弹的形态不同，有小矩形小子弹，扇形的喷火器，也有激光子弹这种贯穿屏幕的。使网格大小有可能一个屏幕只能会有1个存在。约等于没提升。<br />
+针对上面的问题，尝试通过这种方式优化一下</li>
+</ol>
+</li>
+</ol>
+<p><img src="2.png" alt="" /><br />
+将格子偏移一定距离，也就是扩大一定格子的大小，结果有所提升，但是并不好。</p>
+<ol start="2">
+<li>四叉树<br />
+<img src="3.png" alt="" />  <img src="4.png" alt="" /><br />
+开始尝试使用四叉树，对整个地图做动态分区。这样效率大大提升。基本不会出现严重卡顿的情况了。<br />
+2d空间四叉树，对一个平面进行四等分，再对每一个分块再进行四等分，知道该区域内所有节点数量达到预先设置的阈值。基础思想其实就是2分法。</li>
+</ol>
+<p>因为用的cocos引擎，所有找的一个四叉树的js库，<br />
+<a target="_blank" rel="noopener" href="https://github.com/timohausmann/quadtree-js">https://github.com/timohausmann/quadtree-js</a><br />
+可以动态检索与被检查物体在同一范围内的其他小怪，从下面的图看到，200个小怪只需要检测个位数的小怪来完成预筛选<br />
+<a target="_blank" rel="noopener" href="https://timohausmann.de/quadtree.js/dynamic.html">https://timohausmann.de/quadtree.js/dynamic.html</a><br />
+<img src="5.jpg" alt="400" /></p>
+<p>这个库提供了最基础的四叉树构建，和动态添加功能，可以设置树的最大深度，树节点可包含的node的阈值。代码很少，很精炼。<br />
+缺点：</p>
+<ol>
+<li>只能动态添加，不能动态删除。</li>
+<li>想要动态删除和添加，需要每帧开始时，重新构建地图上所有怪物的四叉树</li>
+<li>对象只能是矩形。<br />
+由于项目时间的限制，没有过多时间去这个库进行针对性修改逻辑，但是性能上提升很多，基本够用。<br />
+<img src="6.jpg" alt="200" />        <img src="7.jpg" alt="200" /></li>
+</ol>
+<p>还有很多其他的空间划分，没再过多研究。除了对碰撞检测进行优化，还可以引用在视锥剔除，比如游戏中的大地图，不在某一范围的可以不显示，或者忽略细节，3d游戏中，摄像机中物体被其他物体挡住后可以不渲染来提升渲染效率。</p>
+<p><code> </code></p>
+<pre><code>Reference
+https://blog.csdn.net/liran2019/article/details/106966794
+https://www.cnblogs.com/KillerAery/p/10878367.html
+https://forum.cocos.org/t/topic/95573
+</code></pre>
+
     </div>
 
     
@@ -343,13 +370,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/08/07/markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83%E4%BB%A5%E5%8F%8A%E5%9C%A8Hexo%E4%BD%BF%E7%94%A8/" rel="prev" title="markdown语法参考以及在Hexo使用">
-                  <i class="fa fa-angle-left"></i> markdown语法参考以及在Hexo使用
+                <a href="/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/" rel="prev" title="动效理论-刷新率">
+                  <i class="fa fa-angle-left"></i> 动效理论-刷新率
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/08/22/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%88%B7%E6%96%B0%E7%8E%87/" rel="next" title="动效理论-刷新率">
-                  动效理论-刷新率 <i class="fa fa-angle-right"></i>
+                <a href="/2024/10/21/%E5%8A%A8%E6%95%88%E7%90%86%E8%AE%BA-%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4/" rel="next" title="动效理论-子弹时间">
+                  动效理论-子弹时间 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
