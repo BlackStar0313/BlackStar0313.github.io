@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_0313_blog=self.webpackChunk_0313_blog||[]).push([[5738],{2725:s=>{s.exports=JSON.parse('{"tags":[{"label":"\u65e5\u8bb0","permalink":"/zh-Hans/blog/tags/\u65e5\u8bb0","count":1}]}')}}]);
