@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_0313_blog=self.webpackChunk_0313_blog||[]).push([[5738],{52725:a=>{a.exports=JSON.parse('{"tags":[{"label":"\u601d\u8003","permalink":"/zh-Hans/blog/tags/\u601d\u8003","count":2},{"label":"\u65e5\u8bb0","permalink":"/zh-Hans/blog/tags/\u65e5\u8bb0","count":1}]}')}}]);
